@@ -1,0 +1,123 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.wrapper {
+	margin: 100px auto;
+	background: #eee;
+}
+
+.info {
+	position: relative;
+	padding: 20px 40px;
+	background: #ddd;
+	transition: all .25s ease-in;
+}
+
+.info.win {
+	background: green;
+	color: #fff;
+}
+
+.info.loose {
+	background: red;
+	color: #fff;
+}
+
+.counter,
+.timer {
+	width: 50%;
+	float:left;
+}
+
+.timer {
+	text-align: right;
+}
+
+.board-wrapper {
+	padding: 40px;
+}
+
+.board {
+	transition: all .5s linear;
+}
+
+.board.win {
+	opacity: .75;
+}
+
+.field {
+	width: 30px; height: 30px;
+	float: left;
+	margin: 2px;
+	overflow: hidden;
+
+	cursor:pointer;
+}
+
+.overlay {
+	padding: 8px 0;
+	width: 100%;
+	font-size: 14px; line-height: 14px;
+	text-align: center;
+	background: #333;
+	color: #fff;
+}
+
+.overlay:hover {
+	opacity: .75;
+}
+
+.overlay.open {
+	background: #bbb;
+	color: #000;
+	font-weight: bold;
+}
+
+.overlay.open:hover {
+	opacity: 1;
+}
+
+.overlay.flag {
+	background: blue;
+}
+
+.overlay.mine {    		
+	background: red;
+}
+
+.overlay.mine:hover {    		
+	opacity: 1;
+}
+
+.overlay .material-icons {
+	font-size: 14px;
+	color: #fff;
+}
+
+.gameover {
+	position: absolute; 
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+}
+
+.clearfix {
+	clear: both;
+}
+
+button {
+	position: absolute;
+	top: 0px; left: 50%;
+	transform: translate(-50%, 0);
+	width: 40px; height: 60px;
+	background: none;
+	border: none;
+	cursor:pointer;
+	z-index:9999;
+	outline: none;
+}
+
+.win button,
+.loose button {
+	color: #fff;
+}

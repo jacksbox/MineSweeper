@@ -1,0 +1,76 @@
+<!doctype html>
+<html ng-app="MineSweeper">
+  <head>
+
+  	<meta name="description" content="jacksbox.de">
+  	<meta name="author" content="Mario Jäckle">
+
+    <link href="/css/style.css" rel="stylesheet">
+    <!-- GOOGLE WEBFONT ICONS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- ANGULAR -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <!-- APP SCRIPT -->
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+  	<div class="wrapper" ng-controller="Game" style="width:{{rows * 34 + 80}}px">
+  		<div id="game">
+  			<section class="info"
+				ng-class="{
+						win: win,
+						loose: loose,
+						}"
+				>
+				<div class="counter">
+					Mines: {{count}}
+				</div>
+				<div class="timer">
+					Time: {{timer}}
+				</div>
+				<div class="clearfix"></div>
+				<button ng-click="init()">
+					<i class="material-icons md24">cached</i>
+				</button>
+			</section>
+			<div class="board-wrapper">
+				<section class="board"
+					ng-class="{
+							win: win,
+							}"
+					>
+					<div class="gameover" ng-hide="running"></div>
+					<div class="row" ng-repeat="row in board">
+						<div ng-repeat="field in row" class="field">
+							<div class="overlay" 
+								ng-click="fieldOpen($parent.$index, $index)" 
+								ng-right-click="fieldFlag($parent.$index, $index)"
+								ng-class="{
+										open: field.state == 1,
+										flag: field.state == 2,
+										mine: field.state == 3
+										}"
+								>
+								<span ng-if="field.state === 0 || (field.state === 1 && field.value === 0)">
+									&nbsp;
+								</span>
+								<span ng-if="field.state === 1 && field.value != 0">
+									{{field.value}}
+								</span>
+								<span ng-if="field.state === 2">
+									<i class='material-icons md18'>flag</i>
+								</span>
+								<span ng-if="field.state === 3">
+									x
+								</span>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</section>
+			</div>
+  		</div>
+	</div>
+  </body>
+</html>
