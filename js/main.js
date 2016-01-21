@@ -1,10 +1,11 @@
-
 /*!
  * jacksbox MineSweeper v0.9
  *
  * Author: Mario Jäckle
  * eMail: support@jacksbox.de
  */
+(function(){ // without the wrapping, its not working on a server?
+
 var app = angular.module('MineSweeper', []);
 var DEV = false;		// are we in development mode?
 
@@ -267,3 +268,5 @@ app.directive('ngRightClick', function($parse) {
         });
     };
 });
+
+})();  
